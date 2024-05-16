@@ -1,4 +1,4 @@
-name: Python Script Scheduler
+name:  Scheduler
  
 on:
   schedule:
