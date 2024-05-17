@@ -21,4 +21,4 @@ jobs:
       run: pip install requests 
       
     - name: Run Python script
-      run: python CodeScanningAlerts.py
+      run: python CoddeScanningAlerts.py
