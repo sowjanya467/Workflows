@@ -1,8 +1,9 @@
-name: Python Script Scheduler
+name: save results
  
 on:
   schedule:
-    - cron: '15 1 * * *'  # Runs every day at midnight UTC
+    - cron: '37 13 * * *'  # Runs every day at midnight UTC
+  workflow_dispatch:
  
 jobs:
   run-script:
@@ -21,4 +22,16 @@ jobs:
       run: pip install requests 
       
     - name: Run Python script
+      env: 
+        TOKEN: ${{secrets.TOKEN}}
       run: python CoddeScanningAlerts.py
+
+    - name: Commit and push JSON file
+      run: |
+          git config --global user.name 'sowjanya467'
+          git config --global user.email 'github-actions[bot]@users.msowjanya2014.gmail.com'
+          git add code_scanning_alerts.json
+          git commit -m 'Add generated code_scanning_alerts.json'
+          git push
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
