@@ -34,4 +34,4 @@ jobs:
           git commit -m 'Add generated code_scanning_alerts.json'
           git push
       env:
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOKEN: ${{ secrets.TOKEN }}
